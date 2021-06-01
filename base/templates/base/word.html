@@ -1,0 +1,9 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+    <a href="{% url 'words' %}">Go Back</a>
+
+    <h1>Word: {{ word }}</h1>
+    <h2>{{ word.examples }}</h2>
+
+{% endblock content %}

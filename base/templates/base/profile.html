@@ -1,0 +1,10 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+    <a href="{% url 'words' %}">Go Back</a>
+
+    <h1>Hi, {{ request.user }}</h1>
+    <h2>Learned words: {{ learned_words }}</h2>
+    <h2>Not learned words: {{ not_learned_words }}</h2>
+
+{% endblock content %}

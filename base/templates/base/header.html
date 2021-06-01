@@ -1,0 +1,47 @@
+<div class="header">
+    <div class="header__navigations">
+        <div class="header__navigations_button">
+            <a class="navigations_button_text" href="{% url 'words' %}">Words</a>
+        </div>
+        <div class="header__navigations_button">
+            <a class="navigations_button_text" href="{% url 'profile' %}">Profile</a>
+        </div>
+        <div class="header__navigations_button">
+            <a class="navigations_button_text" href="{% url 'about' %}">About</a>
+        </div>
+        <div class="user__info">
+            {% if request.user.is_authenticated %}
+                <p class="user__info_username">{{ request.user }},</p>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header__navigations {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .user__info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .user__info_username {
+        margin-right: 5px;
+    }
+</style>

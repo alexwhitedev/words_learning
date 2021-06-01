@@ -1,0 +1,11 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+    <a href="{% url 'words' %}">Go Back</a>
+
+    <h1>APP INFO</h1>
+
+    <h2>Total words: {{ words_count }}</h2>
+    <h2>Total users: {{ users_count }}</h2>
+
+{% endblock content %}
