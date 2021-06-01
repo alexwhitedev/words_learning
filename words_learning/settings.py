@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
-    'rest_framework'
+    'rest_framework',
+    'channels',
+    'chat'
 ]
 
 MIDDLEWARE = [
@@ -71,7 +73,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'words_learning.wsgi.application'
-
+ASGI_APPLICATION = 'words_learning.asgi.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

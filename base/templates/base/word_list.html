@@ -1,41 +1,50 @@
 {% extends 'base/main.html' %}
 
 {% block content %}
+    <div class="content_block">
 
-
-
-    <table>
-        <tr>
-            <th>Learned</th>
-            <th>English</th>
-            <th>Ukrainian</th>
-            <th>Click to take examples</th>
-        </tr>
-        {% for word in words %}
+        <table>
             <tr>
-                {% if word.complete %}
-                    <td>Yes</td>
-                {% else %}
-                    <td>-</td>
-                {% endif %}
-                <td>{{ word.english }}</td>
-                <td>{{ word.ukrainian }}</td>
-                <td><a href="{% url 'word' word.id %}">Examples</a></td>
-                <td><a href="{% url 'word-update' word.id %}">Edit</a></td>
-                <td><a href="{% url 'word-delete' word.id %}">Delete</a></td>
+                <th>Learned</th>
+                <th>English</th>
+                <th>Ukrainian</th>
+                <th>Click to take examples</th>
             </tr>
-        {% empty %}
+            {% for word in words %}
+                <tr>
+                    {% if word.complete %}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+                    <td>{{ word.english }}</td>
+                    <td>{{ word.ukrainian }}</td>
+                    <td><a href="{% url 'word' word.id %}">Examples</a></td>
+                    <td><a href="{% url 'word-update' word.id %}">Edit</a></td>
+                    <td><a href="{% url 'word-delete' word.id %}">Delete</a></td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td>No words</td>
+                </tr>
+            {% endfor %}
             <tr>
-                <td>No words</td>
+                <th>
+                    <a href="{% url 'word-create' %}">Add Word</a>
+                </th>
             </tr>
-        {% endfor %}
-        <tr>
-            <th>
-                <a href="{% url 'word-create' %}">Add Word</a>
-            </th>
-        </tr>
 
-    </table>
+        </table>
+    </div>
+
+    <style>
+        .content_block {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 
 {% endblock content %}
 

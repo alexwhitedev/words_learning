@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WordsLerning</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #cdc3c3;
+            font-family: 'Open Sans', sans-serif;
+            max-width: 800px;
+
+        }
+
+        .container {
+            width: 100%;
+            margin: auto;
+            background-color: antiquewhite;
+            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+</head>
+<body>
+{% include 'base/header.html' %}
+<div class="container">
+    {% block content %}
+
+    {% endblock content %}
+</div>
+
+</body>
+</html>

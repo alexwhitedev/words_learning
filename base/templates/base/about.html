@@ -1,11 +1,20 @@
 {% extends 'base/main.html' %}
 {% block content %}
+    <div class="content_block">
+        <a href="{% url 'words' %}">Go Back</a>
 
-    <a href="{% url 'words' %}">Go Back</a>
+        <h1>APP INFO</h1>
 
-    <h1>APP INFO</h1>
-
-    <h2>Total words: {{ words_count }}</h2>
-    <h2>Total users: {{ users_count }}</h2>
+        <h2>Total words: {{ words_count }}</h2>
+        <h2>Total users: {{ users_count }}</h2>
+    </div>
+    <style>
+        .content_block {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 
 {% endblock content %}
